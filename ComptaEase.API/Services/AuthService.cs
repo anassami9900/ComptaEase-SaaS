@@ -131,7 +131,7 @@ public class AuthService : IAuthService
         };
     }
 
-    public async Task<string> GenerateTokenAsync(string userId, int companyId, string role)
+    public Task<string> GenerateTokenAsync(string userId, int companyId, string role)
     {
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]!));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -151,6 +151,6 @@ public class AuthService : IAuthService
             expires: DateTime.Now.AddDays(7),
             signingCredentials: creds);
 
-        return new JwtSecurityTokenHandler().WriteToken(token);
+        return Task.FromResult(new JwtSecurityTokenHandler().WriteToken(token));
     }
 }
