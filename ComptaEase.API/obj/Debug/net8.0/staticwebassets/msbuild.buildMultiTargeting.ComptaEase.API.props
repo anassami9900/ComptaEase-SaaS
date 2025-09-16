@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/ComptaEase.API.props" />
+</Project>

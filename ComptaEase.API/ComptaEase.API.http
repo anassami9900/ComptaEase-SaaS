@@ -1,0 +1,6 @@
+@ComptaEase.API_HostAddress = http://localhost:5080
+
+GET {{ComptaEase.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
